@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from django.contrib.auth.hashers import make_password
-from .models import CustomUser, UserProfile, NGOProfile
+from .models import CustomUser, IndividualProfile, NGOProfile
 
 class IndividualRegistrationSerializer(serializers.ModelSerializer):
     password = serializers.CharField(write_only=True, required=True)
@@ -40,7 +40,7 @@ class IndividualRegistrationSerializer(serializers.ModelSerializer):
         
         
         # Create profile
-        UserProfile.objects.create(
+        IndividualProfile.objects.create(
             user=user,
             skills=skills,
             interests=interests,

@@ -30,7 +30,7 @@ class CustomUser(AbstractUser):
             clean = f"{clean}_{randint(100, 999)}"
         return clean
 
-class IndividualProfile(models.Model):
+class IndividualProfile (models.Model):
     """Extended profile for individual users"""
     user = models.OneToOneField(CustomUser, on_delete=models.CASCADE, related_name='user_profile')
     skills = models.JSONField(default=list)
